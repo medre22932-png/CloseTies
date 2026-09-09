@@ -6,7 +6,7 @@ Instead of rigid scheduled reminders (*"Call Mom every Sunday at 4:00 PM"*), **C
 
 ---
 
-## 🌟 Key Features & Privacy Guarantees
+## 🌟 Key Features & Privacy Guarantees:
 
 - **100% Offline & Private:** Zero network permissions (`android.permission.INTERNET` is not requested). No telemetry, no tracking SDKs, no cloud servers. All data resides strictly in your local encrypted Room database.
 - **Privacy-Friendly Calling:** No `CALL_PHONE` permission. Directing calls uses `Intent.ACTION_DIAL`, preserving full user autonomy and avoiding Play Store / F-Droid permission friction.
