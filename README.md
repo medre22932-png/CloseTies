@@ -1,4 +1,4 @@
-# Close Ties (LuckyRing) 🎲📞
+# Close Ties 🎲📞 When you are out of sight, you are out of heart —Turkish idiom
 
 > **A minimalist, privacy-first, stochastic personal CRM for Android.**
 
