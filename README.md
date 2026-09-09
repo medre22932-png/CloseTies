@@ -109,6 +109,8 @@ app/src/main/java/com/closeties/app/
 The output APK will be located at:
 `app/build/outputs/apk/debug/app-debug.apk`
 
+Or look at the releases page, there's an apk file there.
+
 ---
 
 ## 📄 License
