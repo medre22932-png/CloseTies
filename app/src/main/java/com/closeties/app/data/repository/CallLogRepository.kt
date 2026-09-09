@@ -13,11 +13,12 @@ data class CallRecord(
     val type: Int
 )
 
-class CallLogRepository(private val context: Context) {
+open class CallLogRepository(private val context: Context?) {
 
-    fun hasCallLogPermission(): Boolean {
+    open fun hasCallLogPermission(): Boolean {
+        val ctx = context ?: return false
         return ContextCompat.checkSelfPermission(
-            context,
+            ctx,
             Manifest.permission.READ_CALL_LOG
         ) == PackageManager.PERMISSION_GRANTED
     }
@@ -25,10 +26,11 @@ class CallLogRepository(private val context: Context) {
     /**
      * Queries calls since [sinceTimestamp] with duration >= [minDurationSeconds] (default 45s).
      */
-    fun getRecentCalls(
+    open fun getRecentCalls(
         sinceTimestamp: Long,
         minDurationSeconds: Long = 45L
     ): List<CallRecord> {
+        val ctx = context ?: return emptyList()
         if (!hasCallLogPermission()) {
             return emptyList()
         }

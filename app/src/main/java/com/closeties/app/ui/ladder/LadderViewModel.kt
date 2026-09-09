@@ -95,7 +95,11 @@ class LadderViewModel(
         viewModelScope.launch {
             val result = syncCallLogsUseCase.syncRecentCalls()
             val msg = if (result.matchedContacts.isNotEmpty()) {
-                "Synced ${result.matchedContacts.size} call(s) and applied cooldowns!"
+                if (result.dailyTargetSatisfied) {
+                    "Synced ${result.matchedContacts.size} call(s) and satisfied daily connection target!"
+                } else {
+                    "Synced ${result.matchedContacts.size} call(s) to contacts in cooldown. Daily target still open!"
+                }
             } else {
                 "No recent calls (>=45s) matched with tracked contacts."
             }

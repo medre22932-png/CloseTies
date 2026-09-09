@@ -12,5 +12,6 @@ data class ContactEntity(
     val shelfLevel: Int, // 1 to 5 (serves as stakes)
     val lastContactedTimestamp: Long = 0L,
     val cooldownUntilTimestamp: Long = 0L,
-    val dateAdded: Long = System.currentTimeMillis()
+    val dateAdded: Long = System.currentTimeMillis(),
+    val lastCallWasEligible: Boolean = false
 )

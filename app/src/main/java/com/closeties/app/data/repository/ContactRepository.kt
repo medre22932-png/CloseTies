@@ -39,8 +39,13 @@ class ContactRepository(private val contactDao: ContactDao) {
         contactDao.updateShelf(lookupKey, newShelf.coerceIn(1, 5))
     }
 
-    suspend fun setCooldown(lookupKey: String, cooldownUntil: Long, lastContacted: Long) {
-        contactDao.updateCooldown(lookupKey, cooldownUntil, lastContacted)
+    suspend fun setCooldown(
+        lookupKey: String,
+        cooldownUntil: Long,
+        lastContacted: Long,
+        lastCallWasEligible: Boolean = true
+    ) {
+        contactDao.updateCooldown(lookupKey, cooldownUntil, lastContacted, lastCallWasEligible)
     }
 
     suspend fun updateLastContacted(lookupKey: String, timestamp: Long) {

@@ -10,7 +10,8 @@ data class TrackedContact(
     val shelfLevel: Int, // 1 to 5
     val lastContactedTimestamp: Long = 0L,
     val cooldownUntilTimestamp: Long = 0L,
-    val dateAdded: Long = System.currentTimeMillis()
+    val dateAdded: Long = System.currentTimeMillis(),
+    val lastCallWasEligible: Boolean = false
 ) {
     val stakes: Int
         get() = shelfLevel.coerceIn(1, 5)
@@ -35,7 +36,8 @@ fun ContactEntity.toDomain(): TrackedContact = TrackedContact(
     shelfLevel = shelfLevel,
     lastContactedTimestamp = lastContactedTimestamp,
     cooldownUntilTimestamp = cooldownUntilTimestamp,
-    dateAdded = dateAdded
+    dateAdded = dateAdded,
+    lastCallWasEligible = lastCallWasEligible
 )
 
 fun TrackedContact.toEntity(): ContactEntity = ContactEntity(
@@ -46,5 +48,6 @@ fun TrackedContact.toEntity(): ContactEntity = ContactEntity(
     shelfLevel = shelfLevel,
     lastContactedTimestamp = lastContactedTimestamp,
     cooldownUntilTimestamp = cooldownUntilTimestamp,
-    dateAdded = dateAdded
+    dateAdded = dateAdded,
+    lastCallWasEligible = lastCallWasEligible
 )

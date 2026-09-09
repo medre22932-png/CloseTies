@@ -41,8 +41,13 @@ interface ContactDao {
     @Query("UPDATE tracked_contacts SET shelfLevel = :newShelf WHERE lookupKey = :lookupKey")
     suspend fun updateShelf(lookupKey: String, newShelf: Int)
 
-    @Query("UPDATE tracked_contacts SET cooldownUntilTimestamp = :cooldownUntil, lastContactedTimestamp = :lastContacted WHERE lookupKey = :lookupKey")
-    suspend fun updateCooldown(lookupKey: String, cooldownUntil: Long, lastContacted: Long)
+    @Query("UPDATE tracked_contacts SET cooldownUntilTimestamp = :cooldownUntil, lastContactedTimestamp = :lastContacted, lastCallWasEligible = :lastCallWasEligible WHERE lookupKey = :lookupKey")
+    suspend fun updateCooldown(
+        lookupKey: String,
+        cooldownUntil: Long,
+        lastContacted: Long,
+        lastCallWasEligible: Boolean = false
+    )
 
     @Query("UPDATE tracked_contacts SET lastContactedTimestamp = :timestamp WHERE lookupKey = :lookupKey")
     suspend fun updateLastContacted(lookupKey: String, timestamp: Long)
