@@ -6,7 +6,7 @@ Instead of rigid scheduled reminders (*"Call Mom every Sunday at 4:00 PM"*), **C
 
 ---
 
-## 🌟 Key Features & Privacy Guarantees:
+## 🌟 Key Features & Privacy Guarantees
 
 - **100% Offline & Private:** Zero network permissions (`android.permission.INTERNET` is not requested). No telemetry, no tracking SDKs, no cloud servers. All data resides strictly in your local encrypted Room database.
 - **Privacy-Friendly Calling:** No `CALL_PHONE` permission. Directing calls uses `Intent.ACTION_DIAL`, preserving full user autonomy and avoiding Play Store / F-Droid permission friction.
@@ -95,68 +95,19 @@ app/src/main/java/com/closeties/app/
 
 ---
 
-## 📦 Getting the APK (Artifact)
-
-### Option 1: Download from GitHub Actions (No build tools required)
-1. Go to the **[Actions tab](https://github.com/medre22932-png/CloseTies/actions)** of the repository.
-2. Click on the latest workflow run under **Build APK**.
-3. Scroll down to the **Artifacts** section at the bottom of the page and click **`app-debug`** to download the pre-compiled APK zip.
-
----
-
-### Option 2: Clone & Build from Source
-
-#### Prerequisites
-- **Git**
-- **JDK 17** (e.g. OpenJDK 17 or Azul Zulu 17)
-- **Android SDK** (API 36, available via Android Studio or Android Command-line Tools)
-
-#### 1. Clone the Repository
-```bash
-git clone https://github.com/medre22932-png/CloseTies.git
-cd CloseTies
-```
-
-#### 2. Build the Debug APK
-The repository includes the Gradle Wrapper (`gradlew`), so manual Gradle installation is not required.
-
-- **macOS / Linux:**
-  ```bash
-  chmod +x gradlew
-  ./gradlew assembleDebug
-  ```
-
-- **Windows:**
-  ```cmd
-  gradlew.bat assembleDebug
-  ```
-
-#### 3. Locate the Artifact
-After `BUILD SUCCESSFUL`, your APK will be generated at:
-```text
-app/build/outputs/apk/debug/app-debug.apk
-```
-
-#### (Optional) Build Release APK / App Bundle
-- **Release APK:**
-  ```bash
-  ./gradlew assembleRelease
-  # Output: app/build/outputs/apk/release/app-release-unsigned.apk
-  ```
-- **Android App Bundle (.aab for Google Play):**
-  ```bash
-  ./gradlew bundleRelease
-  # Output: app/build/outputs/bundle/release/app-release.aab
-  ```
-
----
-
-## 🧪 Testing
+## 🛠️ Building & Testing
 
 ### Running Unit Tests
 ```bash
 ./gradlew testDebugUnitTest
 ```
+
+### Building Debug APK
+```bash
+./gradlew assembleDebug
+```
+The output APK will be located at:
+`app/build/outputs/apk/debug/app-debug.apk`
 
 ---
 
